@@ -23,11 +23,10 @@ function doSecondThing(){
     })
 }
 
-doFirstThing().then(function(data){
-    myObj['data1'] = data;
-    doSecondThing().then(function(data2){
-        myObj['data2'] = data2;
-        console.log(myObj)
-    })
-})
+async function main(){
+    myObj['data1'] = await doFirstThing()
+    myObj['data2'] = await doSecondThing();
+    console.log(myObj)
+}
 
+main();
